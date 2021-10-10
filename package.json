@@ -1,7 +1,6 @@
 {
 	"name": "schemable-svelte",
-	"version": "0.0.2",
-	"main": "src/index.ts",
+	"version": "0.0.3",
 	"license": "mit",
 	"author": {
 		"name": "chance dinkins",
