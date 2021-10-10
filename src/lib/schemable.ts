@@ -57,14 +57,12 @@ export function schemable(node: HTMLElement, opts: SchemableOptions = {}): Schem
 		const prevClasses: Classes = { dark, light };
 		let prevUnknown: string | undefined;
 		let assigned: string;
-		console.log("starting monitor");
 		return derived([prefStore, classes], ([preference, classes]) => {
 			return {
 				preference,
 				classes,
 			};
 		}).subscribe(({ preference, classes }) => {
-			console.log({ preference });
 			const { classList } = node;
 			[
 				[prevClasses.dark, classes.dark],
@@ -98,7 +96,6 @@ export function schemable(node: HTMLElement, opts: SchemableOptions = {}): Schem
 			}
 
 			return () => {
-				console.log("shutting down monitor");
 				if (assigned) {
 					node.classList.remove(assigned);
 				}
@@ -144,7 +141,6 @@ export function schemable(node: HTMLElement, opts: SchemableOptions = {}): Schem
 		}
 		if (!unsub.media) {
 			unsub.media = mediaSchemeStore(opts.defaultScheme).subscribe((value) => {
-				console.log("media changed");
 				node.dispatchEvent(new CustomEvent("preferscolorschemechange", { detail: value }));
 			});
 		}
@@ -153,15 +149,12 @@ export function schemable(node: HTMLElement, opts: SchemableOptions = {}): Schem
 
 		if ("~ls" in prefStore) {
 			if (!stores.preference && preference) {
-				console.log(`saving "${preference}" to localstorage`);
 				prefStore.set(preference);
 			} else if (stores.preference) {
-				console.log(`saving "${preference}" to localstorage`);
 				prefStore.set(preference);
 			}
 		}
 		if (prefStore !== stores.preference) {
-			console.log("prefStore !== stores.preference");
 			if (unsub.scheme) {
 				unsub.scheme();
 				unsub.scheme = null;

@@ -19,7 +19,7 @@ pnpm add -D schemable-svelte
 	import { schemable } from "schemable-svelte";
 </script>
 
-<svelte:window use:schemable />
+<svelte:body use:schemable />
 ```
 
 Upon first initialization, scheamble creates a store which fetches the value of

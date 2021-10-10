@@ -10,7 +10,6 @@
 		// prefers = detail;
 	}}
 	on:colorschemechange={({ detail }) => {
-		console.log("colorschemchange", detail);
 		// preference = detail;
 	}} />
 
