@@ -1,6 +1,6 @@
 # schemable-svelte
 
-Svelte action that sets the class of an element based reactively on the media
+Svelte action which sets the class of an element based, reactively, on either the media
 feature `prefers-color-scheme` or a provided preference.
 
 -   No dependencies beyond svelte
