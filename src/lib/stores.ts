@@ -55,7 +55,6 @@ function createMediaSchemeStore(defaultScheme?: Scheme | null): MediaSchemeStore
 				set("dark");
 			} else if (mediaMatches("light")) {
 				set("light");
-				console.log("setting to light");
 			}
 		}
 		if (typeof window === "undefined") {
@@ -88,7 +87,7 @@ export function schemePreferenceStore(): LocalStorageSchemeStore {
 
 function createLocalStorageStore(): LocalStorageSchemeStore {
 	const store = writable<string | null>(null, (set) => {
-		if (typeof window === "undefined" || typeof localStorage === "undefined") {
+		if (typeof window === "undefined" || typeof window.localStorage === "undefined") {
 			return;
 		}
 		set(localStorage.getItem(LOCAL_STORAGE_KEY));

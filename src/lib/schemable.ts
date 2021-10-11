@@ -81,14 +81,14 @@ export function schemable(node: HTMLElement, opts: SchemableOptions = {}): Schem
 				dispatchColorSchemeChange(light);
 				prevUnknown = undefined;
 			}
-			if (preference === dark) {
+			if (preference === dark || preference === "dark") {
 				node.classList.add(dark);
 				dispatchColorSchemeChange(dark);
 				assigned = dark;
 			} else {
 				node.classList.remove(dark);
 			}
-			if (preference === light) {
+			if (preference === light || preference === "light") {
 				node.classList.add(light);
 				dispatchColorSchemeChange(light);
 			} else {
